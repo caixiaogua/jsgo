@@ -4,7 +4,7 @@ A JavaScript Engin for Server, and better performance than nodejs.
 
 go的性能，js的语法，php的写法。（无需写异步和回调）
 
-···
+```
 // 完全兼容gin.ctx
 
 function main(){
@@ -56,5 +56,4 @@ function main(){
 	else
 		return api.getFile("dazi/main.html")
 }
-···
-
+```
