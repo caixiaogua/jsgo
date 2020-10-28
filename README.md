@@ -6,9 +6,13 @@ go的性能，js的语法，php的写法。（无需写异步和回调）
 
 例如：
 ```
-var res=api.httpGet("http://www.baidu.com/");
-ctx.Header("Content-Type", "text/html; charset=utf-8");
-return res;
+// "/test.js"
+// http://localhost:83/test
+function main(){
+	var res=api.httpGet("http://www.baidu.com/");
+	ctx.Header("Content-Type", "text/html; charset=utf-8");
+	return res;
+}
 ```
 
 更多：
