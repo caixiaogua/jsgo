@@ -4,6 +4,14 @@ A JavaScript Engin for Server, and better performance than nodejs.
 
 go的性能，js的语法，php的写法。（无需写异步和回调）
 
+例如：
+```
+var res=api.httpGet("http://www.baidu.com/");
+ctx.Header("Content-Type", "text/html; charset=utf-8");
+return res;
+```
+
+更多：
 ```
 // 完全兼容gin.ctx
 
