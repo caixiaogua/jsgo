@@ -9,6 +9,13 @@ v3.2更新：
 1. 服务端js代码安全性改进，路由表中的js文件为服务端程序，其他js文件会作为静态资源文件
 2. 支持命令行指定服务端口："jsgo 3421"
 3. 单独封装了mysql代理服务："mysql.exe"
+4. 单独封装了sqlite代理服务："sqlite.exe"
+4. 单独封装了数据库接口："sql.js"
+
+用法：
+var query=api.import("dbc/pdo.js")(["mysql:host=127.0.0.1:3307;dbname=testdb","testdb","#molJOCcqqJoYrmH6"], api); //连接mysql数据库
+var query=api.import("dbc/sql.js")("testdb.db", api); //连接sqlite数据库
+var res=query("select * from json where id>?", [10]);
 ```
 
 例如：
