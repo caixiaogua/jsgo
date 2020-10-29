@@ -10,11 +10,11 @@ v3.2更新：
 2. 支持命令行指定服务端口："jsgo 3421"
 3. 单独封装了mysql代理服务："mysql.exe"
 4. 单独封装了sqlite代理服务："sqlite.exe"
-4. 单独封装了数据库接口："sql.js"
+4. 单独封装了数据库通用接口："sql.js"
 
 用法：
 //连接mysql数据库
-var query=api.import("dbc/pdo.js")(["mysql:host=127.0.0.1:3307;dbname=testdb","testdb","#molJOCcqqJoYrmH6"], api);
+var query=api.import("dbc/sql.js")(["mysql:host=127.0.0.1:3307;dbname=testdb","testdb","#molJOCcqqJoYrmH6"], api);
 //连接sqlite3数据库
 var query=api.import("dbc/sql.js")("testdb.db", api);
 //执行sql
