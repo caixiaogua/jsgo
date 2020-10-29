@@ -4,6 +4,13 @@ A JavaScript Engin for Server, and better performance than nodejs.
 
 go的性能，js的语法，php的写法。（无需写异步和回调）
 
+```
+v3.2更新：
+1. 支持设置命令行指定端口："jsgo 3421"
+2. 服务端js代码安全性改进
+3. 单独封装了mysql代理服务："mysql.exe"
+```
+
 例如：
 ```
 // "/test.js"
