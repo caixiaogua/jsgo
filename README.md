@@ -13,8 +13,11 @@ v3.2更新：
 4. 单独封装了数据库接口："sql.js"
 
 用法：
-var query=api.import("dbc/pdo.js")(["mysql:host=127.0.0.1:3307;dbname=testdb","testdb","#molJOCcqqJoYrmH6"], api); //连接mysql数据库
-var query=api.import("dbc/sql.js")("testdb.db", api); //连接sqlite数据库
+//连接mysql数据库
+var query=api.import("dbc/pdo.js")(["mysql:host=127.0.0.1:3307;dbname=testdb","testdb","#molJOCcqqJoYrmH6"], api);
+//连接sqlite3数据库
+var query=api.import("dbc/sql.js")("testdb.db", api);
+//执行sql
 var res=query("select * from json where id>?", [10]);
 ```
 
