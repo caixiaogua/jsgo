@@ -15,7 +15,7 @@ v3.2更新：
 
 用法：
 //连接mysql数据库
-var query=api.import("dbc/sql.js")(["mysql:host=127.0.0.1:3307;dbname=testdb","testdb","#molJOCcqqJoYrmH6"], api);
+var query=api.import("dbc/sql.js")(["mysql:host=127.0.0.1:3307;dbname=testdb","root","123456"], api);
 //连接sqlite3数据库
 var query=api.import("dbc/sql.js")("testdb.db", api);
 //执行sql
@@ -40,7 +40,6 @@ function main(){
 function main(){
 	var time=new Date().toLocaleString();
 	var act=ctx.Query("do");
-	var topic=ctx.Query("topic");
 	// api.httpGet(url)
 	// api.getFile(path)
 	// api.saveFile(path, string)
@@ -51,29 +50,33 @@ function main(){
 	// return api.saveFile("baidu.txt", res);
 	// api.remove("cat2.jpg")
 	// return JSON.stringify(api.stat("dazi/20200.json"),null,2);
-	// var res=require("class.js")
 	// return res;
 	// return api.fileType("main2.js");
 	// var list=api.getList(".")[0];
 	// list=list.filter(function(x){return !x.IsDir()}).map(function(x){return x.Name()});
 	// return JSON.stringify(list);
-	var query=api.import("dbc/pdo.js")(["mysql:host=127.0.0.1:3307;dbname=testdb","testdb","#molJOCcqqJoYrmH6"], api);
-	// var query=api.import("dbc/pdo.js")("sqlite:../sqlite/testdb.db", api);
-	// var newobj={title:"老大哥", content:"吃饭了吗？"};
+	// var query=api.import("dbc/sql.js")(["mysql:host=127.0.0.1:3307;dbname=testdb","root","123456"], api);
+	// var query=api.import("dbc/sql.js")("testdb.db", api);
+	var newobj={title:"老大哥", content:"吃饭了吗？"};
 	// var res=query("delete from json where id>?", [23]);
 	// var res=query("insert into json (obj) values (?)", [newobj]);
 	// return res;
-	var res=query("select * from json where id>?", [43]);
+	// var res=query("select * from json where id>?", [43]);
+	// var query=function(sql){return api.httpGet("http://127.0.0.1:3344/?db="+encodeURIComponent("testdb:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3307)/testdb")+"&sql="+encodeURIComponent(sql))}
+	// var query=function(sql){return api.httpGet("http://127.0.0.1:3355/?db="+"testdb.db"+"&sql="+encodeURIComponent(sql))}
+	// var res=query("insert into json (obj) values ('"+encodeURIComponent(JSON.stringify(newobj))+"')");
+	// var res=query("select * from json where id>22")
 	// res=decodeURIComponent(res);
-	return res;
-	return JSON.stringify(JSON.parse(res).map(function(x){x.obj=JSON.parse(decodeURIComponent(x.obj));return x;}),null,2);
-	api.name="mark";
-	api.age=23;
-	api.arr=[1,2,"333"];
-	api.obj={child:5,wife:"lucy"};
-	if(!api.count)api.count=0;
-	api.count++;
-	return JSON.stringify(api.obj);
+	// return res;
+	// return JSON.stringify(JSON.parse(res).map(function(x){x.obj=JSON.parse(decodeURIComponent(x.obj));return x;}),null,2);
+	var obj={};
+	obj.name="mark";
+	obj.age=23;
+	obj.arr=[1,2,"333"];
+	obj.obj={child:5,wife:"lucy"};
+	if(!api.db.count)api.db.count=0;
+	api.db.count++;
+	return JSON.stringify(api.db.count);
 	// var upfile=ctx.FormFile("upfile")[0];
 	// ctx.SaveUploadedFile(upfile, upfile.Filename);
 	ctx.Header("Content-Type", "text/html; charset=utf-8");
