@@ -6,7 +6,8 @@ go的性能，js的语法，php的写法。（无需写异步和回调）
 
 ```
 v4.0更新：
-内置mysql支持，用法如下
+内置mysql支持
+用法1：
 //dbtest.js
 function main(){
 	var dbstr="testdb:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3306)/testdb";
@@ -16,6 +17,14 @@ function main(){
 	var data=res[0];
 	// var error=res[1];
 	return data;
+}
+用法2：
+//dbtest2.js
+function main(){
+	var dbstr="testdb:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3306)/testdb";
+	var sqlstr="select * from json where id>1";
+	var res=api.query(sqlstr, dbstr);
+	return res;
 }
 
 v3.2更新：
