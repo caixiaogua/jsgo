@@ -12,8 +12,12 @@ v4.0更新：
 function main(){
 	var dbstr="testdb:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3306)/testdb";
 	var sqlstr="select * from json where id>1";
-	var conn=api.mysql(dbstr);
-	var res=api.dbGet(sqlstr, conn);
+	if(!api.db.conn){
+		//将连接缓存，可提高性能
+		api.db.conn=api.mysql(dbstr);
+		console.log("api.db.conn.created");
+	}
+	res=api.dbGet(sqlstr, api.db.conn);
 	var data=res[0];
 	// var error=res[1];
 	return data;
