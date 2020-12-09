@@ -5,6 +5,19 @@ A JavaScript Engin for Server, and better performance than nodejs.
 go的性能，js的语法，php的写法。（无需写异步和回调）
 
 ```
+v4.0更新：
+内置mysql支持，用法如下
+//dbtest.js
+function main(){
+	var dbstr="testdb:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3306)/testdb";
+	var sqlstr="select * from json where id>1";
+	var conn=api.mysql(dbstr);
+	var res=api.dbGet(sqlstr, conn);
+	var data=res[0];
+	// var error=res[1];
+	return data;
+}
+
 v3.2更新：
 1. 服务端js代码安全性改进，路由表中的js文件为服务端程序，其他js文件会作为静态资源文件
 2. 支持命令行指定服务端口："jsgo 3421"
