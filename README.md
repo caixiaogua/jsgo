@@ -5,7 +5,7 @@ A JavaScript Engine for Server, and better performance than nodejs.
 go的性能，js的语法，php的思路。（无需写异步和回调）
 
 ## 使用方法：
-下载jsgo4.0。zip，解压，执行。
+下载jsgo4.0.zip，解压，执行。
 其中routes.ini为允许访问的路由配置。
 /子目录/static/均为为静态文件目录。
 jsgo4.0起已经内置了mysql驱动，直接可以连接mysql数据库。
