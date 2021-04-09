@@ -1,6 +1,6 @@
 # jsgo
 
-A JavaScript Engin for Server, and better performance than nodejs.
+A JavaScript Engine for Server, and better performance than nodejs.
 
 go的性能，js的语法，php的思路。（无需写异步和回调）
 
