@@ -11,6 +11,7 @@ go的性能，js的语法，php的思路。（无需写异步和回调）
 https://github.com/gin-gonic/gin
 
 js路由中的另一个全局变量 api 包含以下方法（对应了go的函数）：
+```
 "httpGet":  httpGet,
 "httpPost": httpPost,
 "remove":   os.Remove,
@@ -24,6 +25,7 @@ js路由中的另一个全局变量 api 包含以下方法（对应了go的函�
 "dbGet":    getJson,
 "query":    query,
 "mysql":    mysql,
+```
 
 js调用go函数时，如果有多个返回值，则返回值为一个数组。
 
