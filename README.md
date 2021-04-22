@@ -4,6 +4,29 @@ A JavaScript Engine for Server, and better performance than nodejs.
 
 go的性能，js的语法，php的思路。（无需写异步和回调）
 
+框架目录中，每一个js文件即为一个路由，支持子目录。
+“routes.ini”为允许访问的路由配置文件。
+
+完美兼容gin框架，全局对象 ctx 就是 gin.Context 实例，可调用其所用方法，具体请参考：
+https://github.com/gin-gonic/gin
+
+js路由中的另一个全局变量 api 包含以下方法（对应了go的函数）：
+"httpGet":  httpGet,
+"httpPost": httpPost,
+"remove":   os.Remove,
+"rename":   os.Rename,
+"fileType": fileType,
+"stat":     os.Stat,
+"println":  fmt.Println,
+"getList":  ioutil.ReadDir,
+"getFile":  getFileStr,
+"saveFile": saveFile,
+"dbGet":    getJson,
+"query":    query,
+"mysql":    mysql,
+
+js调用go函数时，如果有多个返回值，则返回值为一个数组。
+
 ## 使用方法：
 下载jsgo4.1.zip，解压，执行。
 其中routes.ini为允许访问的路由配置。
