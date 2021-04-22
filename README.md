@@ -5,7 +5,7 @@ A JavaScript Engine for Server, and better performance than nodejs.
 go的性能，js的语法，php的思路。（无需写异步和回调）
 
 框架目录中，每一个js文件即为一个路由，支持子目录。
-“routes.ini”为允许访问的路由配置文件。
+在“routes.ini”文件中配置允许访问的路由。
 
 完美兼容gin框架，全局对象 ctx 就是 gin.Context 实例，可调用其所用方法，具体请参考：
 https://github.com/gin-gonic/gin
