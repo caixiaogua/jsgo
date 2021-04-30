@@ -72,16 +72,13 @@ function main(){
 
 v3.2更新：
 1. 服务端js代码安全性改进，路由表中的js文件为服务端程序，其他js文件会作为静态资源文件
-2. 支持命令行指定服务端口："jsgo 3421"
-3. 单独封装了mysql代理服务："mysql.exe"
-4. 单独封装了sqlite代理服务："sqlite.exe"
+2. 支持命令行指定服务端口："jsgo 3421" （3421为端口号）
+3. 单独封装了sqlite代理服务："sqlite.exe"
 4. 单独封装了数据库通用接口："sql.js"
 5. 解决了共享变量的并发安全问题："api.db"为同个路由的共享变量
 6. 修复了js语法错误导致线程卡住的bug  （2020.11.7）
 
 用法：
-//连接mysql数据库
-var query=api.import("dbc/sql.js")(["mysql:host=127.0.0.1:3307;dbname=testdb","root","123456"], api);
 //连接sqlite3数据库
 var query=api.import("dbc/sql.js")("testdb.db", api);
 //执行sql
