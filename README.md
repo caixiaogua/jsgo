@@ -40,6 +40,24 @@ js调用go函数时，如果有多个返回值，则返回值为一个数组。
 jsgo4.0起已经内置了mysql驱动，直接可以连接mysql数据库。
 目前仅支持ES5的语法，所有异步任务均由go在底层完成，js层无需异步代码。
 
+### 部分常用功能：
+
+```
+var id=ctx.Query("id") //获取query数据
+var password=ctx.PostForm("password") //获取post数据
+var res=ctx.Cookie("uname")[0] //获取cookie
+ctx.SetCookie("name", "value", 3600) //设置cookie
+var res=api.httpGet(url) //Get方式请求url
+var res=api.httpPost(url) //Post方式请求url
+var res=api.getFile("text.html") //读取文件内容
+api.saveFile(path, string) //保存字符串到文件
+api.remove("cat2.jpg") //删除指定文件
+var upfile=ctx.FormFile("upfile")[0]; //获取上传文件
+ctx.SaveUploadedFile(upfile, upfile.Filename); //保存上传文件
+ctx.Header("Content-Type", "text/html; charset=utf-8"); //设置响应头
+var dbc=api.import("dbc.js") //引用文件，得到被引用文件main函数的返回值
+```
+
 ```
 v4.1更新：
 返回的数据如果是对象或数组，会自动序列化，不需要手动JSON.stringify()
