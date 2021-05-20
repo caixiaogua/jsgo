@@ -60,7 +60,7 @@ var dbc=api.import("dbc.js") //引用文件，得到被引用文件main函数的
 
 ```
 v4.1更新：
-返回的数据如果是对象或数组，会自动序列化，不需要手动JSON.stringify()
+main函数返回的数据如果是对象或数组，会自动序列化，不需要手动JSON.stringify()
 
 v4.0更新：
 内置mysql支持
