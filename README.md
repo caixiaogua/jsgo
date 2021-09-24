@@ -4,6 +4,16 @@ A JavaScript Engine for Server, and better performance than nodejs.
 
 go的性能，js的语法，php的思路。（无需写异步和回调）
 
+为什么选择jsgo？
+```
+1. 跨平台，无差别，高性能，低延时
+2. 独立Javascript引擎，与nodejs无关
+3. 完全同步代码，无需考虑异步和回调
+4. 完美热更新，修改路由控制器代码无需重启服务
+5. 框架成熟，功能完善，可快速开发微服务接口
+6. 内建高性能Mysql驱动，开箱即用，省心省事
+```
+
 框架目录中，每一个js文件即为一个路由，支持子目录。例如：
 ```
 /test.js 对应的路由为 /test
