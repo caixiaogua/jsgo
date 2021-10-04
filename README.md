@@ -78,7 +78,7 @@ var password=ctx.PostForm("password") //获取post数据
 var res=ctx.Cookie("uname")[0] //获取cookie
 ctx.SetCookie("name", "value", 3600) //设置cookie
 var res=api.httpGet(url) //Get方式请求url
-var res=api.httpPost(url) //Post方式请求url
+var res=api.httpPost(url, datastr, datatype) //Post方式请求url，datatype为""或"json"
 var res=api.getFile("text.html") //读取文件内容
 api.saveFile(path, string) //保存字符串到文件
 api.remove("cat2.jpg") //删除指定文件
