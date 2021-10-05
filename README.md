@@ -15,17 +15,17 @@ A JavaScript Engine for Server, and better performance than nodejs.
 ```
 #### 欢迎加入QQ群：739721147
 
-框架目录中，每一个js文件即为一个路由控制器，支持子目录。例如：
+##### 框架目录中，每一个js文件即为一个路由控制器，支持子目录。例如：
 ```
 /test.js 对应的路由为 /test
 /book/index.js 对应的路由为 /book/index
 ```
 在“routes.ini”文件中配置允许访问的路由。
 
-完美兼容gin框架，全局对象 ctx 就是 gin.Context 实例，可调用其所用方法，具体请参考：
+##### 完美兼容gin框架，全局对象 ctx 就是 gin.Context 实例，可调用其所用方法，具体请参考：
 https://github.com/gin-gonic/gin
 
-js路由中的另一个全局变量 api 包含以下方法（对应了go的函数）：
+##### js路由中的另一个全局变量 api 包含以下方法（对应了go的函数）：
 ```
 "httpGet":  httpGet,
 "httpPost": httpPost,
@@ -42,9 +42,9 @@ js路由中的另一个全局变量 api 包含以下方法（对应了go的函�
 "mysql":    mysql,
 ```
 
-js调用go函数时，如果有多个返回值，则返回值为一个数组。
+##### js调用go函数时，如果有多个返回值，则返回值为一个数组。
 
-## 使用方法：
+### 安装和使用方法：
 下载jsgo4.1.zip，解压，执行。
 其中routes.ini为允许访问的路由配置。
 /子目录/static/均为为静态文件目录。
@@ -90,6 +90,9 @@ var dbc=api.import("dbc.js") //引用文件，得到被引用文件main函数的
 ```
 
 ```
+v4.2更新：
+并发性能提升30%
+
 v4.1更新：
 main函数返回的数据如果是对象或数组，会自动序列化，不需要手动JSON.stringify()
 
