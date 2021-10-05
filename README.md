@@ -13,9 +13,7 @@ A JavaScript Engine for Server, and better performance than nodejs.
 5. 框架成熟，功能完善，可快速开发微服务接口
 6. 内建高性能Mysql驱动，开箱即用，省心省事
 ```
-
 #### 欢迎加入QQ群：739721147
-
 
 框架目录中，每一个js文件即为一个路由控制器，支持子目录。例如：
 ```
