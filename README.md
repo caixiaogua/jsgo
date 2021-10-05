@@ -14,7 +14,9 @@ A JavaScript Engine for Server, and better performance than nodejs.
 6. 内建高性能Mysql驱动，开箱即用，省心省事
 ```
 
-框架目录中，每一个js文件即为一个路由，支持子目录。例如：
+#### 欢迎加入QQ群：739721147
+
+框架目录中，每一个js文件即为一个路由控制器，支持子目录。例如：
 ```
 /test.js 对应的路由为 /test
 /book/index.js 对应的路由为 /book/index
