@@ -205,3 +205,8 @@ function main(){
 		return api.getFile("dazi/main.html")
 }
 ```
+
+
+
+##### 友情链接
+woo语言：https://woo.wooyri.com/
