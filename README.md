@@ -20,7 +20,11 @@ A JavaScript Engine for Server, and better performance than nodejs.
 /test.js 对应的路由为 /test
 /book/index.js 对应的路由为 /book/index
 ```
-在“routes.ini”文件中配置允许访问的路由。
+##### 路由配置文件：routes.ini
+在该文件中配置允许访问的路由，如果修改了配置文件，可以通过访问 http://127.0.0.1:83/init 来重新加载配置文件（无需重启服务）。
+
+##### 自定义服务端口
+通过命令启动服务时，可附带端口号，如：./jsgo4.2 8082
 
 ##### 完美兼容gin框架，全局对象 ctx 就是 gin.Context 实例，可调用其所用方法，具体请参考：
 https://github.com/gin-gonic/gin
