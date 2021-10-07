@@ -31,7 +31,7 @@ A JavaScript Engine for Server, and better performance than nodejs.
 https://github.com/gin-gonic/gin
 
 #### 公共全局对象：api
-##### js文件中的另一个全局变量 api 包含以下方法（对应了go的函数）：
+##### js文件中的另一个全局对象 api 包含以下方法（对应了go的函数）：
 ```
 "httpGet":  httpGet,
 "httpPost": httpPost,
