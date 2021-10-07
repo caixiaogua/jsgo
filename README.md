@@ -26,10 +26,12 @@ A JavaScript Engine for Server, and better performance than nodejs.
 ##### 自定义服务端口
 通过命令启动服务时，可附带端口号，如：./jsgo4.2 8082
 
-##### 完美兼容gin框架，全局对象 ctx 就是 gin.Context 实例，可调用其所用方法，具体请参考：
+#### 连接实例对象：ctx
+##### 完美兼容gin框架，全局对象 ctx 就是 gin.Context 实例，可调用其所有方法，具体请参考：
 https://github.com/gin-gonic/gin
 
-##### js路由中的另一个全局变量 api 包含以下方法（对应了go的函数）：
+#### 公共全局对象：api
+##### js文件中的另一个全局变量 api 包含以下方法（对应了go的函数）：
 ```
 "httpGet":  httpGet,
 "httpPost": httpPost,
