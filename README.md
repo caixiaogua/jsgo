@@ -15,6 +15,16 @@ A JavaScript Engine for Server, and better performance than nodejs.
 ```
 #### 欢迎加入QQ群：739721147
 
+#### 快速入门
+```
+//访问http://127.0.0.1:83/，返回当前时间戳
+//index.js
+function main(){
+    var res=Date.now();
+    return res;
+}
+```
+
 ##### 框架目录中，每一个js文件即为一个路由控制器，支持子目录。例如：
 ```
 /test.js 对应的路由为 /test
