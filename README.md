@@ -24,6 +24,15 @@ function main(){
     return res;
 }
 ```
+#### 进阶范例（无异步无回调体验）
+```
+//访问http://127.0.0.1:83/test，获取url内容并返回
+//test.js
+function main(){
+    var res=api.httpGet("http://www.baidu.com/");
+    return res;
+}
+```
 
 ##### 框架目录中，每一个js文件即为一个路由控制器，支持子目录。例如：
 ```
