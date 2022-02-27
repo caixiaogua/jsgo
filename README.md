@@ -74,7 +74,7 @@ https://github.com/gin-gonic/gin
 其中routes.ini为允许访问的路由配置。
 /子目录/static/均为为静态文件目录。
 jsgo4.0起已经内置了mysql驱动，直接可以连接mysql数据库。
-目前底层仅支持ES5的语法（v4.3开始支持部分ES6语法），但是，你可以使用typescript提升开放体验（可使用es6语法），tsconfig.json配置如下：
+目前底层仅支持ES5的语法（v4.3开始支持部分ES6语法），但是，你可以使用typescript提升开放体验（可使用最新的js语法），tsconfig.json配置如下：
 ```
 {
   "compilerOptions": {
