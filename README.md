@@ -33,6 +33,15 @@ function main(){
     return res;
 }
 ```
+```
+//获取当前目录下的文件列表
+//test2.js
+function main(){
+	var res=api.getList(".")[0].filter(function(x){return !x.IsDir()}).map(function(x){return x.Name()});	//v4.2及之前版本
+	let res=api.getList(".").filter(x=>!x.IsDir()).map(x=>x.Name());	//v4.3及以上版本（可使用ES6语法）
+	return res;
+}
+```
 
 ##### 框架目录中，每一个js文件即为一个路由控制器，支持子目录。例如：
 ```
