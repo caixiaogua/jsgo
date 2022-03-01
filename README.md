@@ -17,8 +17,15 @@ A JavaScript Engine for Server, and better performance than nodejs.
 
 #### v5.0重要更新：支持ES6语法，支持js文件编译
 ```
+// test.js
+function main(){
+    let fn=(a,b)=>a+b;
+    return fn(3,5);
+}
+
 // 编译test.js，输出test.so
 jsgo5.0 build test.js
+
 // 删除test.js，依然可访问http://127.0.0.1:83/test
 ```
 
