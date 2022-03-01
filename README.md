@@ -15,7 +15,7 @@ A JavaScript Engine for Server, and better performance than nodejs.
 ```
 #### 欢迎加入QQ群：739721147
 
-#### v5.0重要更新：支持ES语法，支持js文件编译
+#### v5.0重要更新：支持ES6语法，支持js文件编译
 ```
 // 编译test.js，输出test.so
 jsgo5.0 build test.js
