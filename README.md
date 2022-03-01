@@ -15,6 +15,13 @@ A JavaScript Engine for Server, and better performance than nodejs.
 ```
 #### 欢迎加入QQ群：739721147
 
+#### v5.0重要更新：支持js文件编译
+```
+// 编译test.js，输出test.so
+jsgo5.0 build test.js
+// 删除test.js，依然可访问http://127.0.0.1:83/test
+```
+
 #### 快速入门
 ```
 //访问http://127.0.0.1:83/，返回当前时间戳
@@ -79,7 +86,7 @@ https://github.com/gin-gonic/gin
 ##### js调用go函数时，如果有多个返回值，则返回值为一个数组。
 
 ### 安装和使用方法：
-下载jsgo4.1.zip，解压，执行。
+下载jsgo4.2.zip，解压，执行。
 其中routes.ini为允许访问的路由配置。
 /子目录/static/均为为静态文件目录。
 jsgo4.0起已经内置了mysql驱动，直接可以连接mysql数据库。
