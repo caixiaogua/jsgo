@@ -15,6 +15,21 @@ A JavaScript Engine for Server, and better performance than nodejs.
 ```
 #### 欢迎加入QQ群：739721147
 
+#### v5.1新增五个强大的功能拓展模块：
+
+##### api.OS	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkOS
+##### api.FS	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkFile
+##### api.Date	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkTime
+##### api.Encode	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkEncrypt
+##### api.Convert	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkConvert
+```
+// 使用范例：获取服务器IP地址
+function main(){
+    let fn=(a,b)=>a+b;
+    let ips=api.OS.GetIPs();
+    return ips;
+}
+```
 #### v5.0重要更新：支持ES6语法，支持js文件编译
 ```
 // test.js
