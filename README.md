@@ -15,34 +15,6 @@ A JavaScript Engine for Server, and better performance than nodejs.
 ```
 #### 欢迎加入QQ群：739721147
 
-#### v5.1新增五个强大的功能拓展模块：
-
-###### api.OS	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkOS
-###### api.FS	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkFile
-###### api.Date	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkTime
-###### api.Encode	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkEncrypt
-###### api.Convert	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkConvert
-```
-// 使用范例：获取服务器IP地址
-function main(){
-    let ips=api.OS.GetIPs();
-    return ips;
-}
-```
-#### v5.0重要更新：支持ES6语法，支持js文件编译
-```
-// test.js
-function main(){
-    let fn=(a,b)=>a+b;
-    return fn(3,5);
-}
-
-// 编译test.js，输出test.so
-jsgo5.0 build test.js
-
-// 删除test.js，依然可访问http://127.0.0.1:83/test
-```
-
 #### 快速入门
 ```
 //访问http://127.0.0.1:83/，返回当前时间戳
@@ -150,8 +122,38 @@ ctx.SaveUploadedFile(upfile, upfile.Filename); //保存上传文件
 ctx.Header("Content-Type", "text/html; charset=utf-8"); //设置响应头
 var dbc=api.import("dbc.js") //引用文件，得到被引用文件main函数的返回值
 ```
+#### v5.1新增五个强大的功能拓展模块：
+
+###### api.OS	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkOS
+###### api.FS	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkFile
+###### api.Date	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkTime
+###### api.Encode	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkEncrypt
+###### api.Convert	参考文档：https://pkg.go.dev/github.com/kakuilan/kgo#LkkConvert
+```
+// 使用范例：获取服务器IP地址
+function main(){
+    let ips=api.OS.GetIPs();
+    return ips;
+}
+```
+#### v5.0重要更新：支持ES6语法，支持js文件编译
+```
+// test.js
+function main(){
+    let fn=(a,b)=>a+b;
+    return fn(3,5);
+}
+
+// 编译test.js，输出test.so
+jsgo5.0 build test.js
+
+// 删除test.js，依然可访问http://127.0.0.1:83/test
+```
 
 ```
+v5.1更新：
+新增五大功能拓展模块，近百个常用功能函数
+
 v5.0更新：
 可对js文件进行加密编译
 
