@@ -158,7 +158,7 @@ mysql接口调整，支持问号参数
 //dbtest.js
 function main(){
 	if(!api.db.query){
-		var dbstr="testdb:#molJOCcqqJoYrmH8@tcp(192.168.1.205:3306)/testdb";
+		var dbstr="root:#molJOCcqqJoYrmH8@tcp(192.168.1.205:3306)/testdb";
 		//使用闭包将连接缓存，可提高性能
 		api.db.query=function(sql,args){
 			return api.dbGet(api.mysql(dbstr),sql,args);
@@ -172,7 +172,7 @@ function main(){
 用法2：
 //dbtest2.js
 function main(){
-	var dbstr="testdb:#molJOCcqqJoYrmH8@tcp(192.168.1.205:3306)/testdb";
+	var dbstr="root:#molJOCcqqJoYrmH8@tcp(192.168.1.205:3306)/testdb";
 	var sqlstr="select * from json where id > ?";
 	var res=api.query(dbstr, sqlstr, [20]);
 	return res;
