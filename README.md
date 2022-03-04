@@ -153,6 +153,30 @@ jsgo5.0 build test.js
 ```
 v5.1更新：
 新增五大功能拓展模块，近百个常用功能函数
+mysql接口调整，支持问号参数
+用法1：
+//dbtest.js
+function main(){
+	if(!api.db.query){
+		var dbstr="testdb:#molJOCcqqJoYrmH8@tcp(192.168.1.205:3306)/testdb";
+		//使用闭包将连接缓存，可提高性能
+		api.db.query=function(sql,args){
+			return api.dbGet(api.mysql(dbstr),sql,args);
+		}
+		console.log("api.db.conn.created");
+	}
+	var sqlstr="select * from json where id > ?";
+	res=api.db.query(sqlstr, [20]);
+	return res;
+}
+用法2：
+//dbtest2.js
+function main(){
+	var dbstr="testdb:#molJOCcqqJoYrmH8@tcp(192.168.1.205:3306)/testdb";
+	var sqlstr="select * from json where id > ?";
+	var res=api.query(dbstr, sqlstr, [20]);
+	return res;
+}
 
 v5.0更新：
 可对js文件进行加密编译
