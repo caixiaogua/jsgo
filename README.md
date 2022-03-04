@@ -172,17 +172,17 @@ v4.0更新：
 用法1：
 //dbtest.js
 function main(){
-	var dbstr="testdb:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3306)/testdb";
-	var sqlstr="select * from json where id>1";
-	if(!api.db.conn){
-		//将连接缓存，可提高性能
-		api.db.conn=api.mysql(dbstr);
+	if(!api.db.query){
+		var dbstr="testdb:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3307)/testdb";
+		//使用闭包将连接缓存，可提高性能
+		api.db.query=function(s){
+			return api.dbGet(s, api.mysql(dbstr));
+		}
 		console.log("api.db.conn.created");
 	}
-	res=api.dbGet(sqlstr, api.db.conn);
-	var data=res[0];
-	// var error=res[1];
-	return data;
+	var sqlstr="select * from json where id > 40";
+	res=api.db.query(sqlstr);
+	return res;
 }
 用法2：
 //dbtest2.js
