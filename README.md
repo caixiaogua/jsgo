@@ -197,7 +197,7 @@ v4.0更新：
 //dbtest.js
 function main(){
 	if(!api.db.query){
-		var dbstr="testdb:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3307)/testdb";
+		var dbstr="root:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3306)/testdb";
 		//使用闭包将连接缓存，可提高性能
 		api.db.query=function(s){
 			return api.dbGet(s, api.mysql(dbstr));
@@ -211,7 +211,7 @@ function main(){
 用法2：
 //dbtest2.js
 function main(){
-	var dbstr="testdb:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3306)/testdb";
+	var dbstr="root:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3306)/testdb";
 	var sqlstr="select * from json where id>1";
 	var res=api.query(sqlstr, dbstr);
 	return res;
