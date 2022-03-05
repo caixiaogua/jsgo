@@ -165,8 +165,8 @@ function main(){
 		}
 		console.log("api.db.conn.created");
 	}
-	var sqlstr="select * from json where id > ?";
-	res=api.db.query(sqlstr, [20]);
+	var sqlstr="select * from json where id > ? limit ?";
+	res=api.db.query(sqlstr, [20,5]);
 	return res;
 }
 用法2：
