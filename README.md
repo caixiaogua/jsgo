@@ -14,7 +14,7 @@ A JavaScript Engine for Server, and better performance than nodejs.
 6. 内建高性能Mysql驱动，开箱即用，省心省事
 7. 可加密编译js文件，保护代码安全性
 8. 绿色单文件二进制主程序，环保高效无依赖
-9. 强大丰富的拓展模块，功能完善，无忧无虑
+9. 强大丰富的内置函数，功能完善，无忧无虑
 ```
 #### 欢迎加入QQ群：739721147
 
