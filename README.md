@@ -69,7 +69,7 @@ https://github.com/gin-gonic/gin
 "remove":   os.Remove,
 "rename":   os.Rename,
 "fileType": fileType,
-"stat":     os.Stat,
+"fileInfo": os.Stat,
 "println":  fmt.Println,
 "getList":  ioutil.ReadDir,
 "getFile":  getFileStr,
@@ -154,6 +154,9 @@ jsgo5.0 build test.js
 ```
 #### 更新日志：
 ```
+v5.2更新
+优化程序逻辑，并发性能提升30%
+
 v5.1更新：
 新增五大功能拓展模块，近百个常用功能函数
 mysql接口调整，支持问号参数
