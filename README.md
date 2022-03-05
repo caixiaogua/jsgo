@@ -159,9 +159,10 @@ mysql接口调整，支持问号参数
 function main(){
 	if(!api.db.query){
 		var dbstr="root:#molJOCcqqJoYrmH8@tcp(192.168.1.205:3306)/testdb";
+		var conn=api.mysql(dbstr);
 		//使用闭包将连接缓存，可提高性能
 		api.db.query=function(sql,args){
-			return api.dbGet(api.mysql(dbstr),sql,args);
+			return api.dbGet(conn,sql,args);
 		}
 		console.log("api.db.conn.created");
 	}
