@@ -164,24 +164,24 @@ mysql接口调整，支持问号参数
 //dbtest.js
 function main(){
 	if(!api.db.query){
-		var dbstr="root:#molJOCcqqJoYrmH8@tcp(192.168.1.205:3306)/testdb";
-		var conn=api.mysql(dbstr);
+		let dbstr="root:#molJOCcqqJoYrmH8@tcp(192.168.1.205:3306)/testdb";
+		let conn=api.mysql(dbstr);
 		//使用闭包将连接缓存，可提高性能
 		api.db.query=function(sql,args){
 			return api.dbGet(conn,sql,args);
 		}
 		console.log("api.db.conn.created");
 	}
-	var sqlstr="select * from json where id > ? limit ?";
-	res=api.db.query(sqlstr, [20,5]);
+	let sqlstr="select * from json where id > ? limit ?";
+	let res=api.db.query(sqlstr, [20,5]);
 	return res;
 }
 用法2：
 //dbtest2.js
 function main(){
-	var dbstr="root:#molJOCcqqJoYrmH8@tcp(192.168.1.205:3306)/testdb";
-	var sqlstr="select * from json where id > ?";
-	var res=api.query(dbstr, sqlstr, [20]);
+	let dbstr="root:#molJOCcqqJoYrmH8@tcp(192.168.1.205:3306)/testdb";
+	let sqlstr="select * from json where id > ?";
+	let res=api.query(dbstr, sqlstr, [20]);
 	return res;
 }
 
@@ -205,9 +205,10 @@ v4.0更新：
 function main(){
 	if(!api.db.query){
 		var dbstr="root:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3306)/testdb";
+		var conn=api.mysql(dbstr);
 		//使用闭包将连接缓存，可提高性能
 		api.db.query=function(s){
-			return api.dbGet(s, api.mysql(dbstr));
+			return api.dbGet(s, conn);
 		}
 		console.log("api.db.conn.created");
 	}
