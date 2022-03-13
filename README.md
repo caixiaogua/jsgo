@@ -45,6 +45,19 @@ function main(){
 	return res;
 }
 ```
+```
+//v5.3开始，可直接在js文件中编写go代码，定义go函数并在js中调用
+//test3.js
+function main(){
+    let readFile=api.goFunc(`
+	    	func(f string)string{
+		    	bs:=ioutil.ReadFile(f);
+		    	return string(bs)
+	    	}
+    	`);
+    return readFile("test3.js");
+}
+```
 
 ##### 框架目录中，每一个js文件即为一个路由控制器，支持子目录。例如：
 ```
