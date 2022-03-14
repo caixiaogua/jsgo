@@ -168,7 +168,7 @@ jsgo5.0 build test.js
 #### 更新日志：
 ```
 v5.3更新：
-支持js文件中嵌套go代码，无需import直接go标准库
+支持js文件中嵌套go代码，无需import直接使用go标准库
 function main(){
     let res=api.goRun(`{
 			  a:=time.Now().Unix();
