@@ -170,13 +170,11 @@ jsgo5.0 build test.js
 v5.3更新：
 支持js文件中嵌套go代码，无需import直接go标准库
 function main(){
-    let res=api.goRun(`
-	    	{
-	    		a:=time.Now().Unix();
-		    	bs:=ioutil.ReadFile("test.js");
-		    	string(bs)
-	    	}
-    	`);
+    let res=api.goRun(`{
+			  a:=time.Now().Unix();
+			  bs:=ioutil.ReadFile("test.js");
+			  string(bs)
+	    	       }`);
     return res;
 }
 
