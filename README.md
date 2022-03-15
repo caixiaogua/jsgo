@@ -167,6 +167,15 @@ jsgo5.0 build test.js
 ```
 #### 更新日志：
 ```
+v5.4更新：
+支持js文件中调用dotnet框架
+function main(){
+	let res=api.dotnet(function(){
+		return System.DateTime.Now.ToString('yyyy-MM-dd hh:mm:ss');
+	});
+	return res;
+}
+
 v5.3更新：
 支持js文件中嵌套go代码，无需import直接使用go标准库
 function main(){
