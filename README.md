@@ -99,7 +99,7 @@ https://github.com/gin-gonic/gin
 其中routes.ini为允许访问的路由配置。
 /子目录/static/均为为静态文件目录。
 jsgo4.0起已经内置了mysql驱动，直接可以连接mysql数据库。
-v4.2及之前版本仅支持ES5的语法，v4.3开始支持部分ES6语法。
+v4.2及之前版本仅支持ES5的语法，v4.3开始支持ES6语法。
 
 #### 所有异步任务均由go在底层完成，js层无需异步代码。
 
