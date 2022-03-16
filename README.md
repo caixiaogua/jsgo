@@ -94,32 +94,14 @@ https://github.com/gin-gonic/gin
 
 ##### js调用go函数时，如果有多个返回值，则返回值为一个数组。
 
-### 安装和使用方法：
+#### 安装和使用方法：
 下载jsgo4.2.zip，解压，执行。
 其中routes.ini为允许访问的路由配置。
 /子目录/static/均为为静态文件目录。
 jsgo4.0起已经内置了mysql驱动，直接可以连接mysql数据库。
-目前底层仅支持ES5的语法（v4.3开始支持部分ES6语法），但是，你可以使用typescript提升开放体验（可使用最新的js语法），tsconfig.json配置如下：
-```
-{
-  "compilerOptions": {
-    "lib": ["es5", "dom"],
-    "target": "es5",
-  }
-}
-```
-ts使用例子：
-```
-var api, ctx;
-function main(){
-    let arr=[1,2,3,4];
-    arr=arr.map(x=>x+=1);
-    let obj={name:"mike",age:32,sex:1,arr};
-    console.log(api, ctx);
-    return obj;
-}
-```
-所有异步任务均由go在底层完成，js层无需异步代码。
+v4.2及之前版本仅支持ES5的语法，v4.3开始支持部分ES6语法。
+
+#### 所有异步任务均由go在底层完成，js层无需异步代码。
 
 ### 部分常用功能：
 
