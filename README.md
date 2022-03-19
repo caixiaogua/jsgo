@@ -150,7 +150,8 @@ jsgo5.0 build test.js
 #### 更新日志：
 ```
 v5.4更新：
-支持js文件中调用dotnet框架
+1. 主程序文件大小缩小三分之一
+2. 支持js文件中调用dotnet框架
 function main(){
 	let res=api.dotnet(function(){
 		return System.DateTime.Now.ToString('yyyy-MM-dd hh:mm:ss');
