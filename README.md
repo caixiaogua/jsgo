@@ -47,7 +47,7 @@ function main(){
 ```
 ```
 //v5.3开始，可直接在js文件中编写go代码，定义go函数并在js中调用
-//范例1：返回go函数，可在js中使用
+//范例1：返回go函数，可在js中调用
 function main(){
     let readFile=api.goFunc(`
 	    	func(f string)string{
