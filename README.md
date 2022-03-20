@@ -175,6 +175,32 @@ v6.0更新：
 4. "jsgo init"命令可生成routes.ini路由表文件，该文件仅对微服务模式有效，单体模式无视该文件
 5. "jsgo build app.js"命令可将app.js编译为app.so文件，程序执行会优先选择so文件
 6. "jsgo -port 888"命令可指定服务运行端口
+//app.js
+function main(){
+	let path=ctx.Request.URL.Path;
+	if(path=="/"){
+		return api.import("count.js")();
+	}else if(path=="/item"){
+		return api.import("item.js")(6);
+	}
+	return "none";
+}
+//count.js
+function main(){
+	//通过return返回一个函数
+	return ()=>{
+		if(!api.db.count)api.db.count=0;
+		api.db.count++;
+		return "首页-"+api.db.count;
+	}
+}
+//item.js
+function main(){
+	//通过return返回一个函数
+	return (v)=>{
+		return "item-"+v;
+	}
+}
 
 v5.4更新：
 1. 主程序文件大小缩小三分之一
