@@ -47,7 +47,7 @@ function main(){
 ```
 ```
 //v5.3开始，可直接在js文件中编写go代码，定义go函数并在js中调用
-//test3.js
+//范例1：返回go函数，可在js中使用
 function main(){
     let readFile=api.goFunc(`
 	    	func(f string)string{
@@ -57,6 +57,25 @@ function main(){
     	`);
     return readFile("test3.js");
 }
+
+//范例2：go自执行函数，直接返回结果
+function main(){
+	let res=api.goRun(`
+		func()string{
+			type Object struct {
+			    Name  string \`json:"name"\`
+			    Order string \`json:"order"\`
+			}
+			animals := []Object{
+				Object{Name: "Platypus", Order: "Monotremata"},
+				Object{Name: "Quoll",    Order: "Dasyuromorphia"},
+				Object{Name: "Peiqi",    Order: "Basketball"},
+			}
+			return string(json.Marshal(animals))
+		}()
+	`);
+	return res;
+』
 ```
 
 ##### 框架目录中，每一个js文件即为一个路由控制器，支持子目录。例如：
@@ -162,11 +181,12 @@ function main(){
 v5.3更新：
 支持js文件中嵌套go代码，无需import直接使用go标准库
 function main(){
-    let res=api.goRun(`{
-			  a:=time.Now().Unix();
-			  bs:=ioutil.ReadFile("test.js");
-			  string(bs)
-	    	       }`);
+    let res=api.goRun(`
+	  func()string{
+	      bs:=ioutil.ReadFile("test.js");
+	      return string(bs)
+	  }()
+    `);
     return res;
 }
 
