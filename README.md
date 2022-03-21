@@ -79,7 +79,7 @@ function main(){
 ```
 #### 功能强大，接口丰富（同一需求多种实现方式）
 ```
-//例：读取users.json文件内容
+//例：读取users.json文件内容，至少4种方法
 function main(){
 	// let res=api.goRun(`string(ioutil.ReadFile("users.json"))`);
 	// let res=api.Convert.Bytes2Str(api.FS.ReadFile("users.json"));
