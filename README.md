@@ -104,6 +104,7 @@ function main(){
 
 ##### 自定义服务端口
 通过命令启动服务时，可附带端口号，如：./jsgo4.2 8082
+（v6.0开始更改为：./jsgo6.0 -port 8082）
 
 #### 连接实例对象：ctx
 ##### 完美兼容gin框架，全局对象 ctx 就是 gin.Context 实例，可调用其所有方法，具体请参考：
@@ -156,7 +157,7 @@ ctx.Header("Content-Type", "text/html; charset=utf-8"); //设置响应头
 var dbc=api.import("dbc.js") //引用文件，得到被引用文件main函数的返回值
 
 更多功能请参考：
-gin框架（https://github.com/gin-gonic/gin）
+gin框架（https://github.com/gin-gonic/gin）（ctx == *gin.Context）
 kgo框架（https://pkg.go.dev/github.com/kakuilan/kgo#section-documentation）
 （v5.3开始）api接口与kgo对应关系如下：
 api.OS		=	kgo.KOS
