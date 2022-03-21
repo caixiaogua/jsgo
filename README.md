@@ -77,6 +77,17 @@ function main(){
 	return res;
 』
 ```
+#### 功能强大，接口丰富（同一需求多种实现方式）
+```
+//例：读取users.json文件内容
+function main(){
+	// let res=api.goRun(`string(ioutil.ReadFile("users.json"))`);
+	// let res=api.Convert.Bytes2Str(api.FS.ReadFile("users.json"));
+	// let res=api.FS.ReadInArray("users.json").join("\n");
+	let res=api.getFile("users.json");
+	return res;
+}
+```
 
 ##### 框架目录中，每一个js文件即为一个路由控制器，支持子目录。例如：
 ```
