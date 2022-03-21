@@ -84,7 +84,7 @@ function main(){
 /test.js 对应的路由为 /test
 /book/index.js 对应的路由为 /book/index
 
-注：以上针对微服务模式，v6.0开始支持还另一种架构模式，两种模式的区别
+注：以上针对微服务模式，v6.0开始还支持另一种架构模式，两种模式的区别
 1. 微服务模式，每个路由文件相对独立，互不影响，同一端口运行多个微服务，适合业务分散的场景。（需要管理路由表routes.ini）
 2. 单体架构模式，仅有一个入口程序"app.js"，类似其他传统框架的开发体验，适合业务集中的场景。（v6.0版本开始支持）
 ```
@@ -132,7 +132,7 @@ v4.2及之前版本仅支持ES5的语法，v4.3开始支持ES6语法。
 ```
 var id=ctx.Query("id") //获取query数据
 var password=ctx.PostForm("password") //获取post数据
-var res=ctx.Cookie("uname")[0] //获取cookie
+var res=ctx.Cookie("uname") //获取cookie
 ctx.SetCookie("name", "value", 3600) //设置cookie
 var res=api.httpGet(url) //Get方式请求url
 var res=api.httpPost(url, datastr, datatype) //Post方式请求url，datatype为""或"json"
@@ -143,6 +143,19 @@ var upfile=ctx.FormFile("upfile")[0]; //获取上传文件
 ctx.SaveUploadedFile(upfile, upfile.Filename); //保存上传文件
 ctx.Header("Content-Type", "text/html; charset=utf-8"); //设置响应头
 var dbc=api.import("dbc.js") //引用文件，得到被引用文件main函数的返回值
+
+更多功能请参考：
+gin框架（https://github.com/gin-gonic/gin）
+kgo框架（https://pkg.go.dev/github.com/kakuilan/kgo#section-documentation）
+（v5.3开始）api接口与kgo对应关系如下：
+api.OS		=	kgo.KOS
+api.FS		=	kgo.KFile
+api.Date	=	kgo.KTime
+api.Encode	=	kgo.KEncr
+api.Convert	=	kgo.KConv
+api.Array	=	kgo.KArr
+api.String	=	kgo.KStr
+api.Number	=	kgo.KNum
 ```
 #### v5.1新增五个强大的功能拓展模块：
 
