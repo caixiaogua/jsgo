@@ -29,16 +29,12 @@ function main(){
 ```
 #### 进阶范例（无异步无回调体验）
 ```
-//访问http://127.0.0.1:83/，获取url内容并返回
-//app.js
 function main(){
     let res=api.httpGet("http://www.baidu.com/");
     return res;
 }
 ```
 ```
-//获取当前目录下的文件列表
-//test2.js
 function main(){
 	let res=api.getList(".").filter(x=>!x.IsDir()).map(x=>x.Name());
 	return res;
