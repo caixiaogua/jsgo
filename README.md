@@ -93,8 +93,9 @@ function main(){
 /test.js 对应的路由为 /test
 /book/index.js 对应的路由为 /book/index
 ```
-
-###### 注：目录中存在app.js或app.so或app.sox文件时，启动为单体架构模式，否则为微服务模式。
+```
+注：目录中存在app.js或app.so或app.sox文件时，启动为单体架构模式，否则为微服务模式。
+```
 
 ##### 自定义服务端口
 通过命令启动服务时，可附带端口号，如：./jsgo6.0 -port 8082
