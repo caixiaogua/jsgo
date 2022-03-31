@@ -1,8 +1,8 @@
 # jsgo
 
-A JavaScript Engine for Server, and better performance than nodejs.
+A JavaScript Runtime for Server, and better performance than nodejs.
 
-### 底层为go，逻辑层为js，且无需写异步和回调。666
+### 底层为go，逻辑层为js，且无需写异步和回调。
 
 为什么选择jsgo？
 ```
@@ -21,18 +21,18 @@ A JavaScript Engine for Server, and better performance than nodejs.
 #### 快速入门
 ```
 //访问http://127.0.0.1:83/，返回当前时间戳
-//index.js
+//app.js
 function main(){
-    var res=Date.now();
+    let res=Date.now();
     return res;
 }
 ```
 #### 进阶范例（无异步无回调体验）
 ```
-//访问http://127.0.0.1:83/test，获取url内容并返回
-//test.js
+//访问http://127.0.0.1:83/，获取url内容并返回
+//app.js
 function main(){
-    var res=api.httpGet("http://www.baidu.com/");
+    let res=api.httpGet("http://www.baidu.com/");
     return res;
 }
 ```
@@ -40,8 +40,7 @@ function main(){
 //获取当前目录下的文件列表
 //test2.js
 function main(){
-	//var res=api.getList(".")[0].filter(function(x){return !x.IsDir()}).map(function(x){return x.Name()});	//v4.2及之前版本
-	let res=api.getList(".").filter(x=>!x.IsDir()).map(x=>x.Name());	//v4.3及以上版本（可使用ES6语法）
+	let res=api.getList(".").filter(x=>!x.IsDir()).map(x=>x.Name());
 	return res;
 }
 ```
@@ -89,22 +88,18 @@ function main(){
 }
 ```
 
-##### 框架目录中，每一个js文件即为一个路由控制器，支持子目录。例如：
-```
+##### v6.0开始支持两种模式
+1. 单体架构模式（推荐），仅有一个入口程序"app.js"，类似其他传统框架的开发体验，适合业务集中的场景，安全性更高。（v6.0版本开始支持）
+
+2. 微服务模式，每个路由文件相对独立，互不影响，同一端口运行多个微服务，适合业务分散的场景。（需要管理路由表routes.ini，路由表中的路径才可访问）（可使用“jsgo6.1 init”命令初始化routes.ini文件，单体模式不需要该文件）
 /index.js 对应的路由为 /
 /test.js 对应的路由为 /test
 /book/index.js 对应的路由为 /book/index
 
-注：以上针对微服务模式，v6.0开始还支持另一种架构模式，两种模式的区别
-1. 微服务模式，每个路由文件相对独立，互不影响，同一端口运行多个微服务，适合业务分散的场景。（需要管理路由表routes.ini）
-2. 单体架构模式，仅有一个入口程序"app.js"，类似其他传统框架的开发体验，适合业务集中的场景。（v6.0版本开始支持）
-```
-##### 路由配置文件：routes.ini
-在该文件中配置允许访问的路由，如果修改了配置文件，可以通过访问 http://127.0.0.1:83/init 来重新加载配置文件（无需重启服务）。
+##### 注：目录中存在app.js或app.so或app.sox文件时，启动为单体架构模式，否则为微服务模式。
 
 ##### 自定义服务端口
-通过命令启动服务时，可附带端口号，如：./jsgo4.2 8082
-（v6.0开始更改为：./jsgo6.0 -port 8082）
+通过命令启动服务时，可附带端口号，如：./jsgo6.0 -port 8082
 
 #### 连接实例对象：ctx
 ##### 完美兼容gin框架，全局对象 ctx 就是 gin.Context 实例，可调用其所有方法，具体请参考：
@@ -129,13 +124,6 @@ https://github.com/gin-gonic/gin
 ```
 
 ##### js调用go函数时，如果有多个返回值，则返回值为一个数组。
-
-#### 安装和使用方法：
-下载jsgo4.2.zip，解压，执行。
-其中routes.ini为允许访问的路由配置。
-/子目录/static/均为为静态文件目录。
-jsgo4.0起已经内置了mysql驱动，直接可以连接mysql数据库。
-v4.2及之前版本仅支持ES5的语法，v4.3开始支持ES6语法。
 
 #### 所有异步任务均由go在底层完成，js层无需异步代码。
 
@@ -326,31 +314,6 @@ function main(){
 	var dbstr="root:#molJOCcqqJoYrmH6@tcp(192.168.1.205:3306)/testdb";
 	var sqlstr="select * from json where id>1";
 	var res=api.query(sqlstr, dbstr);
-	return res;
-}
-
-v3.2更新：
-1. 服务端js代码安全性改进，路由表中的js文件为服务端程序，其他js文件会作为静态资源文件
-2. 支持命令行指定服务端口："jsgo 3421" （3421为端口号）
-3. 单独封装了sqlite代理服务："sqlite.exe"
-4. 单独封装了数据库通用接口："sql.js"
-5. 解决了共享变量的并发安全问题："api.db"为同个路由的共享变量
-6. 修复了js语法错误导致线程卡住的bug  （2020.11.7）
-
-用法：
-//连接sqlite3数据库
-var query=api.import("dbc/sql.js")("testdb.db", api);
-//执行sql
-var res=query("select * from json where id>?", [10]);
-```
-
-例如：
-```
-// "/test.js"
-// http://localhost:83/test
-function main(){
-	var res=api.httpGet("http://www.baidu.com/");
-	ctx.Header("Content-Type", "text/html; charset=utf-8");
 	return res;
 }
 ```
