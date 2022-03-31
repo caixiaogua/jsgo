@@ -2,7 +2,7 @@
 
 A JavaScript Engine for Server, and better performance than nodejs.
 
-### 底层为go，逻辑层为js，且无需写异步和回调。
+### 底层为go，逻辑层为js，且无需写异步和回调。666
 
 为什么选择jsgo？
 ```
