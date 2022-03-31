@@ -29,19 +29,21 @@ function main(){
 ```
 #### 进阶范例（无异步无回调体验）
 ```
+//获取url内容并返回
 function main(){
     let res=api.httpGet("http://www.baidu.com/");
     return res;
 }
 ```
 ```
+//获取当前目录下的文件列表
 function main(){
 	let res=api.getList(".").filter(x=>!x.IsDir()).map(x=>x.Name());
 	return res;
 }
 ```
 ```
-//v5.3开始，可直接在js文件中编写go代码，定义go函数并在js中调用
+//v5.3开始，可直接在js文件中编写go代码，可定义go函数并在js中调用
 //范例1：返回go函数，可在js中调用
 function main(){
     let readFile=api.goFunc(`
