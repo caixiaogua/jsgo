@@ -194,7 +194,7 @@ function main(){
 	if(path=="/img/go.jpg"){
 		ctx.Data(200, "image/jpg", pkg["go.jpg"]);
 	}else if(path=="/css/main.css"){
-		ctx.Data(200, "text/css", arr["main.css"]);
+		ctx.Data(200, "text/css", pkg["main.css"]);
 	}else{
 		return "none";
 	}
