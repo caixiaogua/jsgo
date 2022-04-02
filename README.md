@@ -174,12 +174,6 @@ function main(){
 ```
 #### v5.0重要更新：支持ES6语法，支持js文件编译
 ```
-// test.js
-function main(){
-    let fn=(a,b)=>a+b;
-    return fn(3,5);
-}
-
 // 编译test.js，输出test.so
 jsgo5.0 build test.js
 
@@ -193,13 +187,14 @@ jsgo6.1 buildx app.js
 2. 可将静态目录打包为独立的.pkg文件，例如将css目录打包为css.pkg文件：
 jsgo6.1 pack css
 
-打包资源调用方式
+##打包资源的调用方式##
 function main(){
 	let path=ctx.Request.URL.Path;
+	let pkg=api.loadPack("css.pkg");
 	if(path=="/img/go.jpg"){
-		ctx.Data(200, "image/jpg", arr["go.jpg"]);	//响应二进制文件
+		ctx.Data(200, "image/jpg", pkg["go.jpg"]);
 	}else if(path=="/css/main.css"){
-		return api.Convert.Bytes2Str(arr["main.css"]);	//相应文本文件
+		ctx.Data(200, "text/css", arr["main.css"]);
 	}else{
 		return "none";
 	}
