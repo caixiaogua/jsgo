@@ -122,6 +122,8 @@ https://github.com/gin-gonic/gin
 "dbGet":    getJson,
 "query":    query,
 "mysql":    mysql,
+
+//更多其它接口见后文
 ```
 
 ##### js调用go函数时，如果有多个返回值，则返回值为一个数组。
