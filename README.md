@@ -188,8 +188,22 @@ jsgo5.0 build test.js
 #### 更新日志：
 ```
 v6.1更新：
-可将这个项目编译打包为一个独立的.sox文件，使用以下命令：
+1. 可将整个项目源文件编译打包为一个独立的.sox文件，使用以下命令：
 jsgo6.1 buildx app.js
+2. 可将静态目录打包为独立的.pkg文件，例如将css目录打包为css.pkg文件：
+jsgo6.1 pack css
+
+打包资源调用方式
+function main(){
+	let path=ctx.Request.URL.Path;
+	if(path=="/img/go.jpg"){
+		ctx.Data(200, "image/jpg", arr["go.jpg"]);	//响应二进制文件
+	}else if(path=="/css/main.css"){
+		return api.Convert.Bytes2Str(arr["main.css"]);	//相应文本文件
+	}else{
+		return "none";
+	}
+}
 
 v6.0更新：
 1. 支持单体模式和微服务模式，可根据自己的需求选择
