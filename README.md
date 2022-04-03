@@ -272,7 +272,7 @@ function main(){
 		let conn=api.mysql(dbstr);
 		//使用闭包将连接缓存，可提高性能
 		api.db.query=function(sql,args){
-			return api.dbGet(conn,sql,args);
+			return api.dataGet(conn,sql,args);
 		}
 		console.log("api.db.conn.created");
 	}
