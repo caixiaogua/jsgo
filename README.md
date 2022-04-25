@@ -189,9 +189,17 @@ v7.0更新：
 3. 默认关闭热更新，可使用命令参数启动：jsgo7.0 -watch 5	（其中5表示检查周期为5秒）
 4. 新增api.getQueryObj()方法，返回url参数querystring解析后的js对象，使用更方便。
 5. 新增api.getPostObj()方法，返回post请求（json格式）解析后的js对象，使用更方便。
-例如：
+使用范例：
 let {id, type}=api.getQueryObj();
 let {user, data, token}=api.getPostObj();
+
+6. 内置redis支持（基于go-redis库，请参考相关文档）：
+let redis=api.newRedis("192.168.1.200:6379","",0);
+function main(ctx){
+	redis.Set("key", "value", 0);
+	let res=redis.Get("key").Result();
+	return res;
+}
 
 v6.1更新：
 1. 可将整个项目源文件编译打包为一个独立的.sox文件，使用以下命令：
