@@ -201,6 +201,14 @@ function main(ctx){
 	return res;
 }
 
+7. 内置melondb支持（github.com/caixiaogua/melon-db）：
+let dbc=api.melondb("http://192.168.1.200:1688/test");
+function main(ctx){
+	dbc(`db.arr=[1,2,3];db.time=Date.now();`);
+	let res=dbc(`return db.arr`);
+	return res;
+}
+
 v6.1更新：
 1. 可将整个项目源文件编译打包为一个独立的.sox文件，使用以下命令：
 jsgo6.1 buildx app.js
