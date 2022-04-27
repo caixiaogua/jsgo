@@ -193,7 +193,7 @@ v7.0更新：
 let {id, type}=api.getQueryObj();
 let {user, data, token}=api.getPostObj();
 
-6. 内置redis支持（基于github.com/go-redis/redis/v7库，请参考相关文档）：
+6. 内置redis支持（请参考文档：https://pkg.go.dev/github.com/go-redis/redis）：
 let redis=api.newRedis("192.168.1.200:6379","",0);
 function main(ctx){
 	redis.Set("key", "value", 0);
