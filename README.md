@@ -196,8 +196,9 @@ let {user, data, token}=api.getPostObj();
 6. 内置redis支持（请参考文档：https://pkg.go.dev/github.com/go-redis/redis）：
 let redis=api.newRedis("192.168.1.200:6379","",0);
 function main(ctx){
-	redis.Set("key", "value", 0);
-	let res=redis.Get("key").Result();
+	//redis.Set("key", "value", 0);
+	redis.SetNX("key2", "value2", 10*1e9);	//时间单位为纳秒，1e9相等于1秒
+	let res=redis.Get("key2").Val();
 	return res;
 }
 
