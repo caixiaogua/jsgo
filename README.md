@@ -183,7 +183,7 @@ let {user, data, token}=api.getPostObj();
 let redis=api.newRedis("192.168.1.200:6379","",0);
 function main(ctx){
 	//redis.Set("key", "value", 0);
-	redis.Set("key2", "value2", 10*1e9);	//过期时间单位为纳秒，1e9相等于1秒
+	redis.SetNX("key2", "value2", 10*1e9);	//过期时间单位为纳秒，1e9相等于1秒
 	let res=redis.Get("key2").Val();
 	return res;
 }
