@@ -171,7 +171,7 @@ function main(){
 ```
 v7.0更新：
 1. 精简代码，优化性能，提升稳定性
-2. 仅保留单入口模式，入口文件可自定义（默认为app.js）：jsgo7.0 run index.js
+2. 仅保留单入口模式，入口文件可自定义（默认为app.js）：jsgo7.0 -run index.js
 3. 默认关闭热更新，可使用命令参数启动：jsgo7.0 -watch 5	（其中5表示检查周期为5秒）
 4. 新增api.getQueryObj()方法，返回url参数querystring解析后的js对象，使用更方便。
 5. 新增api.getPostObj()方法，返回post请求（json格式）解析后的js对象，使用更方便。
