@@ -196,7 +196,7 @@ function main(ctx){
 	return res;
 }
 
-8. 新增服务器端模板引擎：
+8. 内置服务器端模板引擎：
 //可载入templates文件夹中的模板文件，可自定义变量标签
 api.gin.Delims("{{", "}}");
 api.gin.LoadHTMLGlob("templates/*");
