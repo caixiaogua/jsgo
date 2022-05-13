@@ -196,6 +196,25 @@ function main(ctx){
 	return res;
 }
 
+8. 新增服务器端模板引擎渲染：
+//可载入templates文件夹中的模板文件，可自定义变量标签
+api.gin.Delims("{{", "}}");
+api.gin.LoadHTMLGlob("templates/*");
+//渲染模板页
+ctx.HTML(200, "index.tmpl", {title:"jsgo_test",list:[1,2,3]});
+
+9. 可随时开启新线程，新线程可后台持续运行，可用于特殊需求：
+if(!api.db.heartInit){
+	api.newTask(function(){
+		while(true){
+			//每秒打印1次时间，后台持续运行
+			api.Date.Sleep(1);
+			api.println(new Date());
+		}
+	});
+	api.db.heartInit=true;	//避免线程重复开启
+}
+
 v6.1更新：
 1. 可将整个项目源文件编译打包为一个独立的.sox文件，使用以下命令：
 jsgo6.1 buildx app.js
