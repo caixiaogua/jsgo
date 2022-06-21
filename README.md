@@ -19,10 +19,10 @@ A JavaScript Runtime for Server, and better performance than nodejs.
 #### 欢迎加入QQ群：739721147
 
 ##### 为提高性能，jsgo7.0起默认关闭了热更新，可使用命令开启：
-···
+```
 //后面数字表示检查间隔（秒）
 ./jsgo7.1 -watch 5
-···
+```
 ##### 可自定义服务端口（默认为 83 端口）
 ```
 ./jsgo7.1 -port 8182
