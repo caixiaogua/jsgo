@@ -163,6 +163,13 @@ function main(){
 
 #### 更新日志：
 ```
+v7.2更新：
+1. 新增php函数集，可在js中调用大部分php函数。
+例如：
+let filestr=api.php.FileGetContents("test.json");
+let urlstr=api.php.Rawurlencode(url);
+接口文档：https://pkg.go.dev/github.com/syyongx/php2go
+
 v7.1更新：
 1. 优化buildx打包逻辑，提升稳定性
 
