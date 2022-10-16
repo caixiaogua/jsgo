@@ -18,7 +18,7 @@ A JavaScript Runtime for Server, and better performance than nodejs.
 ```
 #### 欢迎加入QQ群：739721147
 
-##### 为提高性能，jsgo7.0起默认关闭了热更新，可使用命令开启：
+##### 为提高性能，jsgo7.0起默认关闭了热更新，可使用命令参数开启：
 ```
 //后面数字表示检查间隔（秒）
 ./jsgo7.1 -watch 5
@@ -32,7 +32,7 @@ A JavaScript Runtime for Server, and better performance than nodejs.
 ```
 //访问http://127.0.0.1:83/，返回当前时间戳
 //app.js
-function main(){
+function main(ctx){
     let res=Date.now();
     return res;
 }
@@ -40,14 +40,14 @@ function main(){
 #### 进阶范例（无异步无回调体验）
 ```
 //获取url内容并返回
-function main(){
+function main(ctx){
     let res=api.httpGet("http://www.baidu.com/");
     return res;
 }
 ```
 ```
 //获取当前目录下的文件列表
-function main(){
+function main(ctx){
 	let res=api.getList(".").filter(x=>!x.IsDir()).map(x=>x.Name());
 	return res;
 }
@@ -55,7 +55,7 @@ function main(){
 ```
 //v5.3开始，可直接在js文件中编写go代码，可定义go函数并在js中调用
 //范例1：返回go函数，可在js中调用
-function main(){
+function main(ctx){
     let readFile=api.goFunc(`
 	    	func(f string)string{
 		    	bs:=ioutil.ReadFile(f);
@@ -66,7 +66,7 @@ function main(){
 }
 
 //范例2：go自执行函数，直接返回结果
-function main(){
+function main(ctx){
 	let res=api.goRun(`
 		func()string{
 			type Object struct {
@@ -87,7 +87,7 @@ function main(){
 #### 功能强大，接口丰富（同一需求多种实现方式）
 ```
 //例：读取users.json文件内容，至少4种方法
-function main(){
+function main(ctx){
 	// let res=api.goRun(`string(ioutil.ReadFile("users.json"))`);
 	// let res=api.Convert.Bytes2Str(api.FS.ReadFile("users.json"));
 	// let res=api.FS.ReadInArray("users.json").join("\n");
