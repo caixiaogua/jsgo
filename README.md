@@ -9,7 +9,7 @@ A JavaScript Runtime for Server, and better performance than nodejs.
 1. 跨平台，无差别，高性能，低延时
 2. 独立Javascript引擎，与nodejs无关
 3. 完全同步代码，无需考虑异步和回调
-4. 完美热更新，修改路由控制器代码无需重启服务
+4. 内置数据压缩模块，节省带宽70%以上
 5. 框架成熟，功能完善，可快速开发微服务接口
 6. 内建高性能Mysql驱动，开箱即用，省心省事
 7. 绿色单文件二进制主程序，环保高效无依赖
@@ -17,6 +17,8 @@ A JavaScript Runtime for Server, and better performance than nodejs.
 9. 内置go语言jit编译器，可在js中执行go代码
 ```
 #### 欢迎加入QQ群：739721147
+
+#### 下载地址：https://github.com/caixiaogua/jsgo/releases
 
 ##### 为提高性能，jsgo7.0起默认关闭了热更新，可使用命令参数开启：
 ```
@@ -93,6 +95,19 @@ function main(ctx){
 	// let res=api.FS.ReadInArray("users.json").join("\n");
 	let res=api.getFile("users.json");
 	return res;
+}
+```
+#### 两种编程范式（单线程和多线程），随心切换（仅形参不同）
+```
+//js单线程模式，优点：逻辑简单，js变量可随意共享
+function(ctx){
+    return '单线程模式';
+}
+
+//js多线程模式，优点：线程互不影响，适合更复杂逻辑的业务
+function(task){
+    api.Date.Usleep(1000);	//等待1秒
+    return '多线程模式';
 }
 ```
 
