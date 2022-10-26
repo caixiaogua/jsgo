@@ -100,6 +100,7 @@ function main(ctx){
 #### 两种编程范式（单线程和多线程），随心切换（改变main函数形参即可）
 ```
 //js单线程模式，优点：逻辑简单，js变量可随意共享
+let Data={};	//共享变量
 function main(ctx){
     return '单线程模式';
 }
