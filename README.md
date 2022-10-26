@@ -4,6 +4,8 @@ A JavaScript Runtime for Server, and better performance than nodejs.
 
 ### 底层为go，逻辑层为js，且无需写异步和回调。
 
+#### 下载地址：https://github.com/caixiaogua/jsgo/releases
+
 为什么选择jsgo？
 ```
 1. 跨平台，无差别，高性能，低延时
@@ -17,8 +19,6 @@ A JavaScript Runtime for Server, and better performance than nodejs.
 9. 内置go语言jit编译器，可在js中执行go代码
 ```
 #### 欢迎加入QQ群：739721147
-
-#### 下载地址：https://github.com/caixiaogua/jsgo/releases
 
 ##### 为提高性能，jsgo7.0起默认关闭了热更新，可使用命令参数开启：
 ```
