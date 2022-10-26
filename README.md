@@ -164,7 +164,8 @@ function main(){
 #### 更新日志：
 ```
 v7.2更新：
-1. 新增php函数集，可在js中调用大部分php函数。
+1. 对响应数据自动进行gzip压缩，传输数据量减少70%以上。
+2. 新增php函数集，可在js中调用大部分php函数。
 例如：
 let filestr=api.php.FileGetContents("test.json");
 let urlstr=api.php.Rawurlencode(url);
