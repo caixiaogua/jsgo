@@ -97,15 +97,15 @@ function main(ctx){
 	return res;
 }
 ```
-#### 两种编程范式（单线程和多线程），随心切换（仅形参不同）
+#### 两种编程范式（单线程和多线程），随心切换（改变main函数形参即可）
 ```
 //js单线程模式，优点：逻辑简单，js变量可随意共享
-function(ctx){
+function main(ctx){
     return '单线程模式';
 }
 
 //js多线程模式，优点：线程互不影响，适合更复杂逻辑的业务
-function(task){
+function main(task){
     api.Date.Usleep(1000);	//等待1秒
     return '多线程模式';
 }
