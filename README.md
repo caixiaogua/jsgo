@@ -91,7 +91,7 @@ function main(ctx){
 //app.js
 function main(ctx){
 	let path=ctx.Request.URL.Path;	//获取当前路由
-	ctx.File(path.slice(1));
+	ctx.File(path.slice(1));	//返回静态文件
 }
 ```
 #### 功能强大，接口丰富（同一需求多种实现方式）
