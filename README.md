@@ -130,7 +130,7 @@ function main(ctx){
 
 //js多线程模式，优点：线程互不影响，适合更复杂逻辑的业务
 function main(task){
-    api.Date.Usleep(1000);	//等待1秒
+    api.Date.Sleep(1);	//等待1秒
     return '多线程模式';
 }
 ```
