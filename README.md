@@ -86,6 +86,14 @@ function main(ctx){
 	return res;
 』
 ```
+#### 特殊需求范例（纯静态资源服务器）
+```
+//app.js
+function main(ctx){
+	let path=ctx.Request.URL.Path;	//获取当前路由
+	ctx.File(path);
+}
+```
 #### 功能强大，接口丰富（同一需求多种实现方式）
 ```
 //例：读取users.json文件内容，至少4种方法
