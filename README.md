@@ -86,7 +86,7 @@ function main(ctx){
 	return res;
 』
 ```
-#### static和dist为默认的静态资源目录，个性化需求可参考以下范例
+#### 在jsgo中，static和dist为默认的静态资源目录，个性化需求可参考以下范例
 #### 特殊需求范例1（纯静态资源服务器）
 ```
 //app.js
