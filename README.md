@@ -86,7 +86,8 @@ function main(ctx){
 	return res;
 』
 ```
-#### 特殊需求范例（纯静态资源服务器）
+#### static和dist为默认的静态资源目录，个性化需求可参考以下范例
+#### 特殊需求范例1（纯静态资源服务器）
 ```
 //app.js
 function main(ctx){
@@ -94,6 +95,19 @@ function main(ctx){
 	ctx.File(path.slice(1));	//返回静态文件
 }
 ```
+#### 特殊需求范例2（除个别接口外其他均为静态资源）
+```
+//app.js
+function main(ctx){
+	let path=ctx.Request.URL.Path;	//获取当前路由
+	if(path=='/api/list'){
+		return [1,2,3];		//特定接口逻辑
+	}else{
+		ctx.File(path.slice(1));	//返回静态文件
+	}
+}
+```
+
 #### 功能强大，接口丰富（同一需求多种实现方式）
 ```
 //例：读取users.json文件内容，至少4种方法
