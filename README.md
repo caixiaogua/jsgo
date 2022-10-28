@@ -110,11 +110,12 @@ function main(ctx){
 
 #### 功能强大，接口丰富（同一需求多种实现方式）
 ```
-//例：读取users.json文件内容，至少4种方法
+//例：读取users.json文件内容，至少5种方法
 function main(ctx){
 	// let res=api.goRun(`string(ioutil.ReadFile("users.json"))`);
 	// let res=api.Convert.Bytes2Str(api.FS.ReadFile("users.json"));
 	// let res=api.FS.ReadInArray("users.json").join("\n");
+	// let res=api.php.FileGetContents("users.json");
 	let res=api.getFile("users.json");
 	return res;
 }
