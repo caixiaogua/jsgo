@@ -208,10 +208,10 @@ v7.2更新：
 ##静态资源打包##
 jsgo7.2 pack dist2	//注意不要使用默认静态目录名称static和dist，资源相互引用请使用相对路径
 ##打包资源的调用方式##
-let pkg=api.loadPack("libs.pkg");
+let pkg=api.loadPack("dist2.pkg");
 function main(ctx){
 	let path=ctx.Request.URL.Path;
-	if(path.indexOf('/libs/')==0){
+	if(path.indexOf('/dist2/')==0){
 		if(path.slice(-5)=='.html'){
 			ctx.Data(200, "text/html", pkg[path.slice(1)]);
 		}else if(path.slice(-4)=='.css'){
