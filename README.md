@@ -220,8 +220,8 @@ v7.0更新：
 4. 新增api.getQueryObj()方法，返回url参数querystring解析后的js对象，使用更方便。
 5. 新增api.getPostObj()方法，返回post请求（json格式）解析后的js对象，使用更方便。
 使用范例：
-let {id, type}=api.getQueryObj();
-let {user, data, token}=api.getPostObj();
+let {id, type}=api.getQueryObj(ctx);
+let {user, data, token}=api.getPostObj(ctx);
 
 6. 内置redis支持（请参考文档：https://pkg.go.dev/github.com/go-redis/redis）：
 let redis=api.newRedis("192.168.1.200:6379","",0);
