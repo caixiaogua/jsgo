@@ -204,7 +204,28 @@ function main(){
 ```
 v7.2更新：
 1. 对响应数据自动进行gzip压缩，传输数据量减少70%以上。
-2. 新增php函数集，可在js中调用大部分php函数。
+2. 优化静态资源打包，支持子目录，并减少打包文件大小。
+##静态资源打包##
+jsgo7.2 pack dist2	//注意不要使用默认静态目录名称static和dist，资源相互引用请使用相对路径
+##打包资源的调用方式##
+let pkg=api.loadPack("libs.pkg");
+function main(ctx){
+	let path=ctx.Request.URL.Path;
+	if(path.indexOf('/libs/')==0){
+		if(path.slice(-5)=='.html'){
+			ctx.Data(200, "text/html", pkg[path.slice(1)]);
+		}else if(path.slice(-4)=='.css'){
+			ctx.Data(200, "text/css", pkg[path.slice(1)]);
+		}else if(path.slice(-3)=='.js'){
+			ctx.Data(200, "text/js", pkg[path.slice(1)]);
+		}else{
+			return "none";
+		}
+	}else{
+		//其它接口
+	}
+}
+3. 新增php函数集，可在js中调用大部分php函数。
 例如：
 let filestr=api.php.FileGetContents("test.json");
 let urlstr=api.php.Rawurlencode(url);
