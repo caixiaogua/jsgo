@@ -179,9 +179,11 @@ var upfile=ctx.FormFile("upfile")[0]; //获取上传文件
 ctx.SaveUploadedFile(upfile, upfile.Filename); //保存上传文件
 ctx.Header("Content-Type", "text/html; charset=utf-8"); //设置响应头
 var dbc=api.import("dbc.js") //引用文件，得到被引用文件main函数的返回值
+api.routeDir(ctx, "routes") //设置路由文件夹为"routes"，该文件下的js文件自动映射
 
 更多功能请参考：
 gin框架（https://github.com/gin-gonic/gin）（ctx == *gin.Context）
+php2go框架（https://pkg.go.dev/github.com/syyongx/php2go）
 kgo框架（https://pkg.go.dev/github.com/kakuilan/kgo#section-documentation）
 （v5.3开始）api接口与kgo对应关系如下：
 api.OS		=	kgo.KOS
@@ -202,6 +204,11 @@ function main(){
 
 #### 更新日志：
 ```
+v7.3更新：
+1. 更新依赖库，更好地支持go1.20
+2. 新增 api.routeDir() 接口，设置路由文件夹更方便
+3. 更丰富的php函数库，参考：https://pkg.go.dev/github.com/syyongx/php2go
+
 v7.2更新：
 1. 对响应数据自动进行gzip压缩，传输数据量减少70%以上。
 2. 优化静态资源打包，支持子目录，并减少打包文件大小。
