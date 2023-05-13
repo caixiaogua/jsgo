@@ -84,7 +84,13 @@ function main(ctx){
 		}()
 	`);
 	return res;
-』
+}
+
+//范例3：直接执行go函数，返回结果
+function main(ctx){
+	let res=api.goRun(`time.Now().Format("2006.01.02 15:04:05")`);
+	return res;
+}
 ```
 #### 在jsgo中，static和dist为默认的静态资源目录，如有个性化需求可参考以下范例
 #### 特殊需求范例1（纯静态资源服务器）
