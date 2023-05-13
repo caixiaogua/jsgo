@@ -183,7 +183,7 @@ api.routeDir(ctx, "routes") //设置路由文件夹为"routes"，该文件下的
 
 更多功能请参考：
 gin框架（https://github.com/gin-gonic/gin）（ctx == *gin.Context）
-php2go框架（https://pkg.go.dev/github.com/syyongx/php2go）
+php2go框架（https://pkg.go.dev/github.com/syyongx/php2go）（如：api.php.Md5("str")）
 kgo框架（https://pkg.go.dev/github.com/kakuilan/kgo#section-documentation）
 （v5.3开始）api接口与kgo对应关系如下：
 api.OS		=	kgo.KOS
