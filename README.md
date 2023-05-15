@@ -215,13 +215,11 @@ v7.3更新：
 2. 新增 api.routeDir() 接口，设置路由文件夹更方便
 3. 更丰富的php函数库，参考：https://pkg.go.dev/github.com/syyongx/php2go
 4. 新增更高效的api.MysqlQuery(dsn)接口函数，返回可复用的query函数：
-```
 let query=api.MysqlQuery('root:pass@tcp(192.168.1.205:3306)/testdb');
 function main(ctx){
 	let res=query("select * from json where id > ? limit ?", [20,5]);
 	return res;
 }
-```
 
 v7.2更新：
 1. 对响应数据自动进行gzip压缩，传输数据量减少70%以上。
