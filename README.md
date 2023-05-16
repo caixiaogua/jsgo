@@ -2,7 +2,7 @@
 
 A JavaScript Runtime for Server, and better performance than nodejs.
 
-### 底层为go，逻辑层为js，且无需写异步和回调。
+### 一个高性能的JavasSript服务端运行时（框架），底层为go，逻辑层为js，且无需写异步和回调。
 
 #### 下载地址：https://github.com/caixiaogua/jsgo/releases
 
@@ -12,15 +12,15 @@ A JavaScript Runtime for Server, and better performance than nodejs.
 2. 独立Javascript引擎，与nodejs无关
 3. 完全同步代码，无需考虑异步和回调
 4. 内置数据压缩模块，节省带宽70%以上
-5. 框架成熟，功能完善，可快速开发微服务接口
-6. 内建高性能Mysql驱动，开箱即用，省心省事
-7. 绿色单文件二进制主程序，环保高效无依赖
+5. 内置php函数集，可快速开发微服务接口
+6. 内置高性能Mysql驱动，开箱即用，省心省事
+7. 内置go语言jit编译器，可在js中执行go代码
 8. 可加密编译js源码，可打包静态资源文件
-9. 内置go语言jit编译器，可在js中执行go代码
+9. 绿色单文件二进制主程序，环保高效无依赖
 ```
 #### 欢迎加入QQ群：739721147
 
-##### 为提高性能，jsgo7.0起默认关闭了热更新，可使用命令参数开启：
+##### 为提高性能，jsgo7.0起默认关闭了热更新，但可使用命令参数开启：
 ```
 //后面数字表示检查间隔（秒）
 ./jsgo7.1 -watch 5
@@ -56,7 +56,13 @@ function main(ctx){
 ```
 ```
 //v5.3开始，可直接在js文件中编写go代码，可定义go函数并在js中调用
-//范例1：返回go函数，可在js中调用
+//范例1：直接执行go函数，返回结果
+function main(ctx){
+	let res=api.goRun(`time.Now().Format("2006.01.02 15:04:05")`);
+	return res;
+}
+
+//范例2：返回go函数，可在js中调用
 function main(ctx){
     let readFile=api.goFunc(`
 	    	func(f string)string{
@@ -67,7 +73,7 @@ function main(ctx){
     return readFile("test3.js");
 }
 
-//范例2：go自执行函数，直接返回结果
+//范例3：go自执行函数，直接返回结果
 function main(ctx){
 	let res=api.goRun(`
 		func()string{
@@ -83,12 +89,6 @@ function main(ctx){
 			return string(json.Marshal(animals))
 		}()
 	`);
-	return res;
-}
-
-//范例3：直接执行go函数，返回结果
-function main(ctx){
-	let res=api.goRun(`time.Now().Format("2006.01.02 15:04:05")`);
 	return res;
 }
 ```
@@ -146,23 +146,30 @@ function main(task){
 https://github.com/gin-gonic/gin
 
 #### 公共全局对象：api
-##### js文件中的另一个全局对象 api 包含以下方法（对应了go的函数）：
+##### js文件中的另一个全局 api 对象：
 ```
-"httpGet":  httpGet,
-"httpPost": httpPost,
-"remove":   os.Remove,
-"rename":   os.Rename,
-"fileType": fileType,
-"fileInfo": os.Stat,
-"println":  fmt.Println,
-"getList":  ioutil.ReadDir,
-"getFile":  getFileStr,
-"saveFile": saveFile,
-"dbGet":    getJson,
-"query":    query,
-"mysql":    mysql,
+api.httpGet    //发起get请求
+api.httpPost    //发起post请求
+api.remove	//删除文件
+api.rename	//重命名文件
+api.fileType    //判断文件类型，返回：0-不存在，1-文件，2-文件夹
+api.fileInfo    //获取文件信息
 
-//更多其它接口见后文
+api.php    //go实现的php函数集，参考文档：https://pkg.go.dev/github.com/syyongx/php2go
+
+例如：api.php.Md5("str")
+
+## 另外还有丰富的go语言工具函数集，参考文档：https://pkg.go.dev/github.com/kakuilan/kgo
+api.OS		=	kgo.KOS
+api.FS		=	kgo.KFile
+api.Date	=	kgo.KTime
+api.Encode	=	kgo.KEncr
+api.Convert	=	kgo.KConv
+api.Array	=	kgo.KArr
+api.String	=	kgo.KStr
+api.Number	=	kgo.KNum
+
+例如：api.OS.GetIPs()
 ```
 
 ##### js调用go函数时，如果有多个返回值，则返回值为一个数组。
@@ -191,15 +198,6 @@ api.routeDir(ctx, "routes") //设置路由文件夹为"routes"，该文件下的
 gin框架（https://github.com/gin-gonic/gin）（ctx == *gin.Context）
 php2go框架（https://pkg.go.dev/github.com/syyongx/php2go）（如：api.php.Md5("str")）
 kgo框架（https://pkg.go.dev/github.com/kakuilan/kgo#section-documentation）
-（v5.3开始）api接口与kgo对应关系如下：
-api.OS		=	kgo.KOS
-api.FS		=	kgo.KFile
-api.Date	=	kgo.KTime
-api.Encode	=	kgo.KEncr
-api.Convert	=	kgo.KConv
-api.Array	=	kgo.KArr
-api.String	=	kgo.KStr
-api.Number	=	kgo.KNum
 
 // 使用范例：获取服务器IP地址
 function main(){
