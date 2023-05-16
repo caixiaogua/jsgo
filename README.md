@@ -2,7 +2,8 @@
 
 A JavaScript Runtime for Server, and better performance than nodejs.
 
-### 一个高性能的JavasSript服务端运行时（框架），底层为go，逻辑层为js，且无需写异步和回调。
+### 一个高性能的JavasSript服务端运行时（框架）
+### 底层为go，逻辑层为js，且无需写异步和回调。
 
 #### 下载地址：https://github.com/caixiaogua/jsgo/releases
 
