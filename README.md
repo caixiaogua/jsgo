@@ -147,7 +147,7 @@ function main(task){
 https://pkg.go.dev/github.com/gin-gonic/gin
 
 #### 公共全局对象：api
-##### js文件中的另一个全局 api 对象：
+##### js文件中的全局 api 对象：
 ```
 api.httpGet    //发起get请求
 api.httpPost    //发起post请求
