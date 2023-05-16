@@ -24,11 +24,11 @@ A JavaScript Runtime for Server, and better performance than nodejs.
 ##### 为提高性能，jsgo7.0起默认关闭了热更新，但可使用命令参数开启：
 ```
 //后面数字表示检查间隔（秒）
-./jsgo7.1 -watch 5
+./jsgo7.3 -watch 5
 ```
 ##### 可自定义服务端口（默认为 83 端口）
 ```
-./jsgo7.1 -port 8182
+./jsgo7.3 -port 8182
 ```
 
 #### 快速入门
