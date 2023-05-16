@@ -144,7 +144,7 @@ function main(task){
 
 #### 连接实例对象：ctx
 ##### 完美兼容gin框架，全局对象 ctx 就是 gin.Context 实例，可调用其所有方法，具体请参考：
-https://github.com/gin-gonic/gin
+https://pkg.go.dev/github.com/gin-gonic/gin
 
 #### 公共全局对象：api
 ##### js文件中的另一个全局 api 对象：
@@ -196,9 +196,9 @@ var dbc=api.import("dbc.js") //引用文件，得到被引用文件main函数的
 api.routeDir(ctx, "routes") //设置路由文件夹为"routes"，该文件下的js文件自动映射
 
 更多功能请参考：
-gin框架（https://github.com/gin-gonic/gin）（ctx == *gin.Context）
+gin框架（https://pkg.go.dev/github.com/gin-gonic/gin）（ctx == *gin.Context）
 php2go框架（https://pkg.go.dev/github.com/syyongx/php2go）（如：api.php.Md5("str")）
-kgo框架（https://pkg.go.dev/github.com/kakuilan/kgo#section-documentation）
+kgo框架（https://pkg.go.dev/github.com/kakuilan/kgo）
 
 // 使用范例：获取服务器IP地址
 function main(){
