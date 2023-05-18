@@ -51,7 +51,7 @@ function main(ctx){
 ```
 //获取请求数据并返回
 function main(ctx){
-	let {id}=api.getQueryObj(ctx); //获取get请求的数据对象
+	let {id}=api.getQueryObj(ctx); //获取query数据对象
 	let {user, data}=api.getPostObj(ctx); //获取post请求的数据对象
 	return {id,user,data};
 }
