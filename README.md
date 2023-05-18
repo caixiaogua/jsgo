@@ -49,10 +49,11 @@ function main(ctx){
 }
 ```
 ```
-//获取当前目录下的文件列表
+//获取请求数据并返回
 function main(ctx){
-	let res=api.getList(".").filter(x=>!x.IsDir()).map(x=>x.Name());
-	return res;
+	let {id}=api.getQueryObj(ctx); //获取get请求的数据对象
+	let {user, data}=api.getPostObj(ctx); //获取post请求的数据对象
+	return {id,user,data};
 }
 ```
 ```
