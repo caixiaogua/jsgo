@@ -221,7 +221,6 @@ function main(ctx){
 	return res;
 }
 5. 新增 api.sync() 接口，完美解决多线程模式下的数据共享问题：
-```
 // app.js中main(task)自动开启多线程模式
 function main(task){
 	let count=api.sync(function(){
@@ -233,7 +232,6 @@ function main(task){
 	});
 	return count;
 }
-```
 
 v7.2更新：
 1. 对响应数据自动进行gzip压缩，传输数据量减少70%以上。
