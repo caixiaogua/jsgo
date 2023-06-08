@@ -220,6 +220,20 @@ function main(ctx){
 	let res=query("select * from json where id > ? limit ?", [20,5]);
 	return res;
 }
+5. 新增 api.sync() 接口，完美解决多线程模式下的数据共享问题：
+```
+// app.js中main(task)自动开启多线程模式
+function main(task){
+	let count=api.sync(function(){
+		// api.db为全局共享对象，所有线程共享
+		// 需要修改时应当在api.sync接口中完成
+		if(!api.db.count)api.db.count=1;
+		api.db.count++;
+		return api.db.count;
+	});
+	return count;
+}
+```
 
 v7.2更新：
 1. 对响应数据自动进行gzip压缩，传输数据量减少70%以上。
