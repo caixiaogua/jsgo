@@ -57,6 +57,19 @@ function main(ctx){
 }
 ```
 ```
+//从Mysql数据库中读取数据，并返回客户端
+let query=api.MysqlQuery('root:pass@tcp(192.168.1.205:3306)/testdb');
+function main(ctx){
+	let path=ctx.Request.URL.Path;	//获取当前路由
+	if(path=='/userlist'){
+		let res=query("select * from users where id > ? limit ?", [20,5]);
+		return res;
+	}else{
+		return 404;
+	}
+}
+```
+```
 //v5.3开始，可直接在js文件中编写go代码，可定义go函数并在js中调用
 //范例1：直接执行go函数，返回结果
 function main(ctx){
