@@ -51,10 +51,10 @@ function main(ctx){
 ```
 //获取请求数据并返回
 function main(ctx){
-	let {method}=ctx.Request; //返回请求方法名称，返回GET或POST
+	let method=ctx.Request.Method; //返回请求方法名称，返回GET或POST
 	let {id}=api.getQueryObj(ctx); //获取query数据对象，并解构出id
 	let {user, data}=api.getPostObj(ctx); //获取post请求的数据对象
-	return {id,user,data};
+	return {method,id,user,data};
 }
 ```
 ```
